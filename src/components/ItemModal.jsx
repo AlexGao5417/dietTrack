@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 .title{
-  height: 28px;
   font-family: Roboto;
   font-size: 24px;
   font-weight: normal;
@@ -209,10 +208,12 @@ const ItemModal = () => {
   const img = nutritionData ? <img width='64px' src={nutritionData.photo.thumb} /> : null
   const modalDisplay = nutritionData ? (
     <Wrapper>
+      <div style={{display:'flex',flexDirection:'column'}}>
       <div className='title'>
         {nutritionData.food_name}
       </div>
-      {state.isCommon?null:<div style={{marginTop: '8%'}}>{nutritionData.brand_name}</div>}
+      {state.isCommon?null:<div>{nutritionData.brand_name}</div>}
+      </div>
       <div className='divider'>
         <Divider />
       </div>
