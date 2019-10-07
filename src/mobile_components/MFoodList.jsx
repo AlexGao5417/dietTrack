@@ -26,7 +26,6 @@ const FoodItem = styled.div`
     margin: 2% 0% 2% 2%
   }
   .food_name{
-    height: 24px;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 500;
