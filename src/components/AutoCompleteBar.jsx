@@ -58,7 +58,7 @@ const prefixstyle = {
 }
 
 const option_style = {
-  width: '420px',
+  width: 'inherit',
   height: '72px',
   display: 'flex',
   alignItems: 'center'
@@ -113,7 +113,7 @@ const AutoCompleteBar = () => {
       axios.get(urlQuery).then((res) => {
         const data =
           (
-            [<OptGroup key='common'>
+            [<OptGroup key='common' style={{width:'100%'}}>
               {res.data.common.map(opt => (
                 <Option
                   key={opt.food_name}
@@ -121,7 +121,7 @@ const AutoCompleteBar = () => {
                   style={option_style}>
                   <img src={opt.photo.thumb} style={{ width: '40px', height: '40px' }} />
                   <div style={font_style}>
-                    {opt.food_name}
+                    {(opt.food_name.length>24) ? `${opt.food_name.slice(0,20)}...` : opt.food_name}
                   </div>
                 </Option>
               ))}
@@ -135,7 +135,7 @@ const AutoCompleteBar = () => {
                   <img src={opt.photo.thumb} style={{ width: '40px', height: '40px' }} />
                   <div style={{display:'flex', flexDirection:'column'}}>
                   <div style={font_style}>
-                    {opt.food_name}
+                    {(opt.food_name.length>24) ? `${opt.food_name.slice(0,20)}...` : opt.food_name}
                   </div>
                   <div style={font_style2}>
                     {opt.brand_name}
@@ -165,7 +165,9 @@ const AutoCompleteBar = () => {
   return (
     <Wrapper>
       <AutoComplete
-        dropdownMenuStyle={{ maxHeight: '600px' }}
+        open={true}
+        dropdownMatchSelectWidth={true}
+        dropdownMenuStyle={{ maxHeight: '600px', width: '100%' }}
         className="certain-category-search"
         dropdownClassName="certain-category-search-dropdown"
         dropdownMatchSelectWidth={false}
