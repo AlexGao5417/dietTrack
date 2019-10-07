@@ -165,7 +165,6 @@ const AutoCompleteBar = () => {
   return (
     <Wrapper>
       <AutoComplete
-        open={true}
         dropdownMatchSelectWidth={true}
         dropdownMenuStyle={{ maxHeight: '600px', width: '100%' }}
         className="certain-category-search"
